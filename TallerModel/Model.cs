@@ -4,6 +4,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace TallerModel
 {
 
@@ -34,10 +35,15 @@ namespace TallerModel
     public class Usuario
     {
         public int UsuarioId { get; set; }
+
+        [Required(ErrorMessage = "El apellido es obligatorio.")]
         public string Apellido { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "El nombre es obligatorio.")]
         public string Nombre { get; set; } = string.Empty;
 
-        public Rango? Puesto { get; set; } 
+        [Required(ErrorMessage = "El puesto es obligatorio.")]
+        public Rango? Puesto { get; set; }
     }
 
     public class UsuarioServices
@@ -51,6 +57,29 @@ namespace TallerModel
 
         public Usuario Create(Usuario usuario)
         {
+            var errores = new List<string>();
+            
+            if (string.IsNullOrWhiteSpace(usuario.Nombre))
+            {
+                errores.Add("El nombre es obligatorio y no puede estar vacío.");
+            }
+
+            if (string.IsNullOrWhiteSpace(usuario.Apellido))
+            {
+                errores.Add("El apellido es obligatorio y no puede estar vacío.");
+            }
+
+            if (usuario.Puesto == null)
+            {
+                errores.Add("El puesto es obligatorio.");
+            }
+
+            if (errores.Count > 0)
+            {
+                // Concatena todos los mensajes de error y lanza una sola excepción
+                throw new ArgumentException(string.Join("\n", errores));
+            }
+
             _context.Usuarios.Add(usuario);
             _context.SaveChanges();
             return (usuario);
