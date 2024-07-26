@@ -1,0 +1,28 @@
+C:\Martin2024\TallerMecanico\TallerModel\bin\Debug\net8.0\TallerModel.deps.json
+C:\Martin2024\TallerMecanico\TallerModel\bin\Debug\net8.0\TallerModel.runtimeconfig.json
+C:\Martin2024\TallerMecanico\TallerModel\bin\Debug\net8.0\TallerModel.dll
+C:\Martin2024\TallerMecanico\TallerModel\bin\Debug\net8.0\TallerModel.pdb
+C:\Martin2024\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.csproj.AssemblyReference.cache
+C:\Martin2024\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Martin2024\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.AssemblyInfoInputs.cache
+C:\Martin2024\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.AssemblyInfo.cs
+C:\Martin2024\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.csproj.CoreCompileInputs.cache
+C:\Martin2024\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.dll
+C:\Martin2024\TallerMecanico\TallerModel\obj\Debug\net8.0\refint\TallerModel.dll
+C:\Martin2024\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.pdb
+C:\Martin2024\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.genruntimeconfig.cache
+C:\Martin2024\TallerMecanico\TallerModel\obj\Debug\net8.0\ref\TallerModel.dll
+C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico\TallerModel\bin\Debug\net8.0\TallerModel.deps.json
+C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico\TallerModel\bin\Debug\net8.0\TallerModel.runtimeconfig.json
+C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico\TallerModel\bin\Debug\net8.0\TallerModel.dll
+C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico\TallerModel\bin\Debug\net8.0\TallerModel.pdb
+C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.csproj.AssemblyReference.cache
+C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.AssemblyInfoInputs.cache
+C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.AssemblyInfo.cs
+C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.dll
+C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico\TallerModel\obj\Debug\net8.0\refint\TallerModel.dll
+C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.pdb
+C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico\TallerModel\obj\Debug\net8.0\TallerModel.genruntimeconfig.cache
+C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico\TallerModel\obj\Debug\net8.0\ref\TallerModel.dll

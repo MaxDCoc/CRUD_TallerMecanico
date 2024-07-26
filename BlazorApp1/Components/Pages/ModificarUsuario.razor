@@ -1,0 +1,123 @@
+﻿@page "/ModificarUsuario"
+@rendermode InteractiveServer
+@inject NavigationManager Navigation
+@using TallerModel
+
+<PageTitle>Usuarios</PageTitle>
+
+<h3>ModificarUsuario</h3>
+
+<form>
+    <fieldset>
+        <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">Nombre</label>
+            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" @bind="usuarioBuscadoID.Nombre">
+        </div>
+
+        <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">Apellido </label>
+            <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" @bind="usuarioBuscadoID.Apellido">
+        </div>
+
+        <div class="mb-3">
+            <label for="puestoSelect" class="form-label">Puesto de Trabajo</label>
+            <select id="puestoSelect" class="form-select" @bind="usuarioBuscadoID.Puesto">
+                <option value="">Seleccione un puesto</option>
+                @foreach (var rango in PuestosModif)
+                {
+                    <option value="@rango">@rango</option>
+                }
+            </select>
+
+        </div>
+        <div class="mt-3">
+            <a href="/Usuarios" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="false">Volver</a>
+            <!-- Trigger Modal Confirmar Usuario -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#guardar"> Modificar </button>
+            <!-- Modal Confirmar Usuario -->
+            <div class="modal fade" id="guardar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="guardarLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="guardarLabel">Confirmar Cambios</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Volver"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <form>
+                                    <div class="row g-3 align-items-center">
+                                        <div class="col-auto">
+                                            <label for="inputName" class="col-form-label">Nombre</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input class="form-control" type="text" value="@usuarioBuscadoID.Nombre" aria-label="Disabled input example" disabled readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-3 align-items-center mt-1">
+                                        <div class="col-auto">
+                                            <label for="inputApellido" class="col-form-label">Apellido</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input class="form-control" type="text" value="@usuarioBuscadoID.Apellido" aria-label="Disabled input example" disabled readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-3 align-items-center mt-1">
+                                        <div class="col-auto">
+                                            <label for="inputPuesto" class="col-form-label">Puesto</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <select class="form-select" aria-label="Disabled select example" disabled>
+                                                <option selected>@usuarioBuscadoID.Puesto</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="false" @onclick="@(() => { Update(usuarioBuscadoID);})">Confirmar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<div class="mt-3">
+    
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    public int usuarioId { get; set;}
+    public Usuario? usuarioBuscadoID;
+    public Usuario? userModificado;
+    private List<Rango>? PuestosModif = Enum.GetValues(typeof(Rango)).Cast<Rango>().ToList();
+    UsuarioServices usuarioServices = new UsuarioServices();
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (usuarioId != 0)
+        {
+            usuarioBuscadoID = usuarioServices.GetById(usuarioId);
+        }
+
+    }
+
+
+    public void Update(Usuario unUsuario)
+    {
+        userModificado = usuarioServices.GetById(usuarioId);
+        userModificado.Nombre = unUsuario.Nombre;
+        userModificado.Apellido = unUsuario.Apellido;
+        userModificado.Puesto = unUsuario.Puesto;
+        usuarioServices.Update(userModificado);
+        
+        Navigation.NavigateTo("/Usuarios");
+    }
+}

@@ -1,0 +1,206 @@
+﻿@page "/Usuarios"
+@rendermode InteractiveServer
+@using TallerModel
+
+<PageTitle>Usuarios</PageTitle>
+
+<div class="container">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+            <h1 class="mb-0">CRUD de Usuarios</h1>
+            <i class="bi bi-wrench-adjustable-circle" style="font-size: 4rem;"></i>
+        </div>
+</div>
+
+@if (listaUsuarios == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a href="/CrearUsuario" class="btn btn-outline-primary me-3" tabindex="-1" role="button" aria-disabled="true"> <i class="bi bi-person-add"></i> Crear Usuario</a>
+            </div>
+            <div class="col">
+                <form class="d-flex" role="search">
+                    <input type="search" class="form-control mb-2 me-2" id="nombre-filtro" @bind="nombreBuscado" placeholder="Filtrar por Nombre">
+                    <div class="btn-group">
+
+                        <button type="button" class="btn btn-primary mb-2" @onclick="@(() => Filtrar(nombreBuscado))"> <i class="bi bi-search"></i> </button>
+
+                        <button type="button" class="btn btn-danger mb-2" @onclick="@(() => Limpiar(nombreBuscado))"> <i class="bi bi-arrow-clockwise"> </i></button>
+
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <div class="d-flex align-items-center justify-content-end flex-grow-1">
+                    <i class="bi bi-person-check fs-4 text-primary"></i>
+                    <span class="fs-4 ms-2 text-primary">@listaUsuarios.Count()</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Puesto</th>
+                <th> Acciones </th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var usuario in listaUsuarios)
+            {
+                <tr>
+                    <td>@usuario.UsuarioId</td>
+                    <td>@usuario.Nombre</td>
+                    <td>@usuario.Apellido</td>
+                    <td>@usuario.Puesto</td>
+                    <td>
+                        <!-- Trigger Modal Ver Usuario -->
+                        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                        <!-- Modal Ver Usuario -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Ver Usuario</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <form>
+                                                    <div class="row g-3 align-items-center">
+                                                        <div class="col-auto">
+                                                            <label for="inputName" class="col-form-label">Nombre</label>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <input class="form-control" type="text" value="@usuario.Nombre" aria-label="Disabled input example" disabled readonly>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row g-3 align-items-center mt-1">
+                                                        <div class="col-auto">
+                                                            <label for="inputApellido" class="col-form-label">Apellido</label>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <input class="form-control" type="text" value="@usuario.Apellido" aria-label="Disabled input example" disabled readonly>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row g-3 align-items-center mt-1">
+                                                        <div class="col-auto">
+                                                            <label for="inputPuesto" class="col-form-label">Puesto</label>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <select class="form-select" aria-label="Disabled select example" disabled>
+                                                                <option selected>@usuario.Puesto</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Listo</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Trigger Redirige Ver Usuario -->
+
+                        <a href="/modificarusuario?usuarioId=@usuario.UsuarioId" class="btn btn-outline-warning" tabindex="-1" role="button" aria-disabled="true"> <i class="bi bi-pencil"></i> </a>
+
+
+                        <!-- Trigger Modal Eliminar Usuario -->
+                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#confirmar"> <i class="bi bi-person-x"> </i> </button>
+                        <!-- Modal Eliminar Usuario -->
+                        <div class="modal fade" id="confirmar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confirmarLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="confirmarLabel">Eliminar Usuario</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ¿Estás seguro de que deseas eliminar este usuario? Esta acción es irreversible y se eliminarán todos los datos asociados con él.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @onclick="@(()=> Delete(usuario.UsuarioId))"> Confirmar </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+
+@code {
+    public UsuarioServices usuarioServices = new UsuarioServices();
+    public string nombreBuscado = string.Empty;
+    IEnumerable<Usuario>? listaUsuarios;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        GetAllUsuarios();
+    }
+    public void GetAllUsuarios()
+    {
+
+        //OBTENER LISTA DE USUARIOS
+        listaUsuarios = usuarioServices.GetAll();
+    }
+
+    public void GetByNomb(string unNombre)
+    {
+        //OBTENER LISTA DE USUARIOS COINCIDENTES CON UN NOMBRE
+        listaUsuarios = usuarioServices.GetByNombreyAp(unNombre);
+    }
+
+    public void Delete(int id)
+    {
+        //ELIMINA UN USUARIO POR SU ID Y RESETEA LISTA DE USUARIOS
+        int? usuarioElimado = usuarioServices.Delete(id);
+        GetAllUsuarios();
+    }
+
+    public void Filtrar(string unNombreyAp)
+    {
+        //FILTRA USUARIOS 
+
+        if (unNombreyAp == string.Empty)
+        {
+            GetAllUsuarios();
+        }
+
+        else
+        {
+            GetByNomb(unNombreyAp);
+        }
+
+
+    }
+
+    public void Limpiar (string unNombreyAp)
+    {
+        unNombreyAp = string.Empty;
+        Filtrar(unNombreyAp);
+    }
+
+}
