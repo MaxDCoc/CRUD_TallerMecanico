@@ -36,13 +36,13 @@ namespace TallerModel
     {
         public int UsuarioId { get; set; }
 
-        [Required(ErrorMessage = "El apellido es obligatorio.")]
+        //[Required(ErrorMessage = "El apellido es obligatorio.")]
         public string Apellido { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El nombre es obligatorio.")]
+        //[Required(ErrorMessage = "El nombre es obligatorio.")]
         public string Nombre { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "El puesto es obligatorio.")]
+        //[Required(ErrorMessage = "El puesto es obligatorio.")]
         public Rango? Puesto { get; set; }
     }
 
@@ -57,7 +57,7 @@ namespace TallerModel
 
         public Usuario Create(Usuario usuario)
         {
-            var errores = new List<string>();
+          /*  var errores = new List<string>();
             
             if (string.IsNullOrWhiteSpace(usuario.Nombre))
             {
@@ -79,7 +79,7 @@ namespace TallerModel
                 // Concatena todos los mensajes de error y lanza una sola excepción
                 throw new ArgumentException(string.Join("\n", errores));
             }
-
+          */
             _context.Usuarios.Add(usuario);
             _context.SaveChanges();
             return (usuario);
