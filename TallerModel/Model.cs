@@ -4,7 +4,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Microsoft.EntityFrameworkCore;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+//using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace TallerModel
 {
 

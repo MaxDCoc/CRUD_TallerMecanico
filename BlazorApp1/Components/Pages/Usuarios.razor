@@ -64,77 +64,65 @@ else
                     <td>@usuario.Puesto</td>
                     <td>
                         <!-- Trigger Modal Ver Usuario -->
-                        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#verUsuarioModal_@usuario.UsuarioId">
                             <i class="bi bi-eye"></i>
                         </button>
                         <!-- Modal Ver Usuario -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Ver Usuario</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="container">
-                                                <form>
-                                                    <div class="row g-3 align-items-center">
-                                                        <div class="col-auto">
-                                                            <label for="inputName" class="col-form-label">Nombre</label>
-                                                        </div>
-                                                        <div class="col-auto">
-                                                            <input class="form-control" type="text" value="@usuario.Nombre" aria-label="Disabled input example" disabled readonly>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row g-3 align-items-center mt-1">
-                                                        <div class="col-auto">
-                                                            <label for="inputApellido" class="col-form-label">Apellido</label>
-                                                        </div>
-                                                        <div class="col-auto">
-                                                            <input class="form-control" type="text" value="@usuario.Apellido" aria-label="Disabled input example" disabled readonly>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row g-3 align-items-center mt-1">
-                                                        <div class="col-auto">
-                                                            <label for="inputPuesto" class="col-form-label">Puesto</label>
-                                                        </div>
-                                                        <div class="col-auto">
-                                                            <select class="form-select" aria-label="Disabled select example" disabled>
-                                                                <option selected>@usuario.Puesto</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Listo</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <!-- Trigger Redirige Modificar Usuario -->
-                        <a href="/modificarusuario?usuarioId=@usuario.UsuarioId" class="btn btn-outline-warning" tabindex="-1" role="button" aria-disabled="true"> <i class="bi bi-pencil"></i> </a>
-
-                        <!-- Trigger Modal Eliminar Usuario -->
-                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#confirmar"> <i class="bi bi-person-x"> </i> </button>
-                        <!-- Modal Eliminar Usuario -->
-                        <div class="modal fade" id="confirmar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confirmarLabel" aria-hidden="true">
+                        <div class="modal fade" id="verUsuarioModal_@usuario.UsuarioId" tabindex="-1" aria-labelledby="verUsuarioLabel_@usuario.UsuarioId" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="confirmarLabel">Eliminar Usuario</h1>
+                                        <h5 class="modal-title" id="verUsuarioLabel_@usuario.UsuarioId">Ver Usuario</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        ¿Estás seguro de que deseas eliminar este usuario? Esta acción es irreversible y se eliminarán todos los datos asociados con él.
+                                        <div class="container">
+                                            <div class="row mb-3">
+                                                <label class="col-form-label col-sm-4">Nombre:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" value="@usuario.Nombre" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label class="col-form-label col-sm-4">Apellido:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" value="@usuario.Apellido" disabled />
+												</div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label class="col-form-label col-sm-4">Puesto:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" value="@usuario.Puesto" disabled />
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @onclick="@(()=> Delete(usuario.UsuarioId))"> Confirmar </button>
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Trigger Redirige Modificar Usuario -->
+                        <a href="/modificarusuario?usuarioId=@usuario.UsuarioId" class="btn btn-outline-warning" tabindex="-1" role="button" aria-disabled="true"> <i class="bi bi-pencil"></i> </a>
+                        <!-- Trigger Modal Eliminar Usuario -->
+                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#eliminarUsuarioModal_@usuario.UsuarioId">
+                            <i class="bi bi-person-x"></i>
+                        </button>
+                        <!-- Modal Eliminar Usuario -->
+                        <div class="modal fade" id="eliminarUsuarioModal_@usuario.UsuarioId" tabindex="-1" aria-labelledby="eliminarUsuarioLabel_@usuario.UsuarioId" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="eliminarUsuarioLabel_@usuario.UsuarioId">Eliminar Usuario</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ¿Estás seguro de que deseas eliminar al usuario @usuario.Nombre @usuario.Apellido? Esta acción no se puede deshacer.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @onclick="@(() => Delete(usuario.UsuarioId))">Eliminar</button>
                                     </div>
                                 </div>
                             </div>
@@ -143,6 +131,7 @@ else
                 </tr>
             }
         </tbody>
+
     </table>
 }
 
