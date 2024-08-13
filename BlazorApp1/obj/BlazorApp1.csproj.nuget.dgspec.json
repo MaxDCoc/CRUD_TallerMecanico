@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\BlazorApp1\\BlazorApp1.csproj": {}
+    "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\BlazorApp1\\BlazorApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\BlazorApp1\\BlazorApp1.csproj": {
+    "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\BlazorApp1\\BlazorApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\BlazorApp1\\BlazorApp1.csproj",
+        "projectUniqueName": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\BlazorApp1\\BlazorApp1.csproj",
         "projectName": "BlazorApp1",
-        "projectPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\BlazorApp1\\BlazorApp1.csproj",
+        "projectPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\BlazorApp1\\BlazorApp1.csproj",
         "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\BlazorApp1\\obj\\",
+        "outputPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\BlazorApp1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\TallerModel\\TallerModel.csproj": {
-                "projectPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\TallerModel\\TallerModel.csproj"
+              "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\TallerModel\\TallerModel.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\TallerModel\\TallerModel.csproj"
               }
             }
           }
@@ -84,14 +84,14 @@
         }
       }
     },
-    "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\TallerModel\\TallerModel.csproj": {
+    "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\TallerModel\\TallerModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\TallerModel\\TallerModel.csproj",
+        "projectUniqueName": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\TallerModel\\TallerModel.csproj",
         "projectName": "TallerModel",
-        "projectPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\TallerModel\\TallerModel.csproj",
+        "projectPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\TallerModel\\TallerModel.csproj",
         "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\TallerModel\\obj\\",
+        "outputPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\TallerModel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

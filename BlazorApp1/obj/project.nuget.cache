@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BVOBEfU4b6w=",
+  "dgSpecHash": "hJvj6bDACsM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\BlazorApp1\\BlazorApp1.csproj",
+  "projectFilePath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\BlazorApp1\\BlazorApp1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrador\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Administrador\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

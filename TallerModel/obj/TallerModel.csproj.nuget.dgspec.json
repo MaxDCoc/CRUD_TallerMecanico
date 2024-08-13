@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\TallerModel\\TallerModel.csproj": {}
+    "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\TallerModel\\TallerModel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\TallerModel\\TallerModel.csproj": {
+    "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\TallerModel\\TallerModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\TallerModel\\TallerModel.csproj",
+        "projectUniqueName": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\TallerModel\\TallerModel.csproj",
         "projectName": "TallerModel",
-        "projectPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\TallerModel\\TallerModel.csproj",
+        "projectPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\TallerModel\\TallerModel.csproj",
         "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico\\TallerModel\\obj\\",
+        "outputPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\TallerModel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

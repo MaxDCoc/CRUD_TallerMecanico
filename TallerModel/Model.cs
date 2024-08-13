@@ -4,7 +4,6 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Microsoft.EntityFrameworkCore;
-//using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace TallerModel
 {
 
@@ -15,35 +14,29 @@ namespace TallerModel
         {
             //optionsBuilder.UseInMemoryDatabase("TallerMecanicoDB");
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Taller;Trusted_Connection=True;");
-            //optionsBuilder.UseSqlServer(@"Server=LS_SERVERPR\SQLEXPRESS;Database=PruebaCarrito2;user=sa;password=VALE3618");
-            //optionsBuilder.UseSqlite("Data Source=CarritosCompraStandardLite.db");
-            //optionsBuilder.UseNpgsql("Host=localhost;Database=PruebaCarrito2;Username=postgres;Password=postgres");
-            //optionsBuilder.UseMySQL("server=localhost;database=library;user=user;password=password");
         }
 
     }
-
-    public enum Rango
-        {
-        Gerente,
-        Administrativo,
-        DT,
-        Mecanico
-        }
-
 
     public class Usuario
     {
         public int UsuarioId { get; set; }
 
-        //[Required(ErrorMessage = "El apellido es obligatorio.")]
+        
         public string Apellido { get; set; } = string.Empty;
 
-        //[Required(ErrorMessage = "El nombre es obligatorio.")]
+        
         public string Nombre { get; set; } = string.Empty;
 
-        //[Required(ErrorMessage = "El puesto es obligatorio.")]
         public Rango? Puesto { get; set; }
+    }
+
+    public enum Rango
+    {
+        Gerente,
+        Administrativo,
+        DT,
+        Mecanico
     }
 
     public class UsuarioServices
@@ -57,29 +50,6 @@ namespace TallerModel
 
         public Usuario Create(Usuario usuario)
         {
-          /*  var errores = new List<string>();
-            
-            if (string.IsNullOrWhiteSpace(usuario.Nombre))
-            {
-                errores.Add("El nombre es obligatorio y no puede estar vacío.");
-            }
-
-            if (string.IsNullOrWhiteSpace(usuario.Apellido))
-            {
-                errores.Add("El apellido es obligatorio y no puede estar vacío.");
-            }
-
-            if (usuario.Puesto == null)
-            {
-                errores.Add("El puesto es obligatorio.");
-            }
-
-            if (errores.Count > 0)
-            {
-                // Concatena todos los mensajes de error y lanza una sola excepción
-                throw new ArgumentException(string.Join("\n", errores));
-            }
-          */
             _context.Usuarios.Add(usuario);
             _context.SaveChanges();
             return (usuario);
