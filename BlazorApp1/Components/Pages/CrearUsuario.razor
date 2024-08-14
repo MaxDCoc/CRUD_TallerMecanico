@@ -2,26 +2,28 @@
 @rendermode InteractiveServer
 @using TallerModel
 
-<PageTitle>Usuarios</PageTitle>
-
+<!-- Titulo-->
 <h3>Crear Usuario</h3>
 
+<!-- Formulario para Crear Usuario-->
 <form>
     <fieldset>
+        <!-- Campo del Formulario para Nombre de Usuario-->
         <div class="mb-3">
             <label for="disabledTextInput" class="form-label">Nombre</label>
             <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" @bind="usuarioaCrear.Nombre">
         </div>
-
+        <!-- Campo del Formulario para Apellido de Usuario-->
         <div class="mb-3">
             <label for="disabledTextInput" class="form-label">Apellido </label>
             <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" @bind="usuarioaCrear.Apellido">
         </div>
-
+        <!-- Campo del Formulario para Selector de Puestos-->
             <div class="mb-3">
                 <label for="puestoSelect" class="form-label">Puesto de Trabajo</label>
                 <select id="puestoSelect" class="form-select" @bind="usuarioaCrear.Puesto">
                     <option value="">Seleccione un puesto</option>
+                <!-- Opciones de la lista de rangos disponibles-->
                     @foreach (var rango in Puestos)
                     {
                         <option value="@rango">@rango</option>
@@ -30,20 +32,25 @@
 
             </div>
         <div class="mt-3">
+            <!-- Botón para volver a Pagina /Usuarios-->
             <a href="/Usuarios" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="false">Volver</a>
-            <!-- Trigger Modal Confirmar Usuario -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#guardar"> Crear </button>
-            <!-- Modal Confirmar Usuario -->
+            <!--Botón abre Ventana Emergente para Confirmación de Nuevo Usuario-->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#guardar"> Confirmar </button>
+            <!--Ventana Emergente muestra propiedades del Nuevo Usuario-->
             <div class="modal fade" id="guardar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="guardarLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
+                        <!--Encabezado Ventana Emergente Titulo y Botón para Cerrar-->
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="guardarLabel">Confirmar Cambios</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Volver"></button>
                         </div>
+                        <!--Cuerpo Ventana Emergente propiedades del Nuevo Usuario-->
                         <div class="modal-body">
                             <div class="container">
+                                <!--Formulario desactivado con datos del Usuario-->
                                 <form>
+                                    <!--Campo Desactivado para Nombre del Nuevo Usuario-->
                                     <div class="row g-3 align-items-center">
                                         <div class="col-auto">
                                             <label for="inputName" class="col-form-label">Nombre</label>
@@ -52,7 +59,7 @@
                                             <input class="form-control" type="text" value="@usuarioaCrear.Nombre" aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>
-
+                                    <!--Campo Desactivado para Apellido del Nuevo Usuario-->
                                     <div class="row g-3 align-items-center mt-1">
                                         <div class="col-auto">
                                             <label for="inputApellido" class="col-form-label">Apellido</label>
@@ -61,7 +68,7 @@
                                             <input class="form-control" type="text" value="@usuarioaCrear.Apellido" aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>
-
+                                    <!--Campo Desactivado para Puesto del Nuevo Usuario-->
                                     <div class="row g-3 align-items-center mt-1">
                                         <div class="col-auto">
                                             <label for="inputPuesto" class="col-form-label">Puesto</label>
@@ -74,8 +81,8 @@
                                     </div>
                                 </form>
                             </div>
-
                         </div>
+                        <!--Pie de Ventana Emergente para Confirmar Cambios-->
                         <div class="modal-footer">
                             <a href="/Usuarios" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="false" @onclick="@(()=> Update(usuarioaCrear))">Confirmar</a>
                         </div>
@@ -83,25 +90,25 @@
                 </div>
             </div>
         </div>
-
-       
     </fieldset>
 </form>
 
 
 @code {
-    public Usuario usuarioaCrear = new Usuario();
-    public Usuario userCreado; 
-   
-    private List<Rango> Puestos = Enum.GetValues(typeof(Rango)).Cast<Rango>().ToList();
+    public Usuario usuarioaCrear = new Usuario(); //instancia un Nuevo Usuario va a crear 
+    public Usuario userCreado;  //variable donde se instanciará el intermediario entre el Usuario y la Base de datos
+
+    private List<Rango> Puestos = Enum.GetValues(typeof(Rango)).Cast<Rango>().ToList(); //se guarda los distintos puestos disponibles para mostrar como opción
 
 
     protected override async Task OnInitializedAsync()
     {
+        //operaciones al realizar a incicializarse 
     }
 
     public void Update(Usuario unUsuario)
     {
+        //se utiliza el intermedario para guardar el nuevo usuario en la base de datos
         UsuarioServices usuarioServices = new UsuarioServices();
         Usuario userCreado = usuarioServices.Update(unUsuario);
 

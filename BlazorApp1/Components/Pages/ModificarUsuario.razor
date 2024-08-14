@@ -3,48 +3,56 @@
 @inject NavigationManager Navigation
 @using TallerModel
 
-<PageTitle>Usuarios</PageTitle>
+<!-- Titulo Modificar Usuario -->
 
 <h3>ModificarUsuario</h3>
 
+<!-- Formulario para Modificar Nombre, Apellido y Puesto -->
 <form>
     <fieldset>
+        <!-- Campo de formulario para Modificar Nombre-->
         <div class="mb-3">
             <label for="disabledTextInput" class="form-label">Nombre</label>
             <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" @bind="usuarioBuscadoID.Nombre">
         </div>
-
+        <!-- Campo de formulario para Modificar Apellido-->
         <div class="mb-3">
             <label for="disabledTextInput" sclass="form-label">Apellido </label>
             <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" @bind="usuarioBuscadoID.Apellido">
         </div>
 
+        <!-- Campo de formulario para Selector de Puesto-->
         <div class="mb-3">
             <label for="puestoSelect" class="form-label">Puesto de Trabajo</label>
             <select id="puestoSelect" class="form-select" @bind="usuarioBuscadoID.Puesto">
+                <!-- Muestra opciones de la lista de Rangos-->
                 <option value="">Seleccione un puesto</option>
                 @foreach (var rango in PuestosModif)
                 {
                     <option value="@rango">@rango</option>
                 }
             </select>
-
         </div>
         <div class="mt-3">
+            <!-- Botón volver redirige a /Usuarios -->
             <a href="/Usuarios" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="false">Volver</a>
-            <!-- Trigger Modal Confirmar Usuario -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#guardar"> Modificar </button>
-            <!-- Modal Confirmar Usuario -->
+            <!-- Botón Abre Ventana Emergente Confirmar Cambios -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#guardar"> Confirmar </button>
+            <!-- Ventana Emergente Confirmar Cambios Datos de Usuario Modificado -->
             <div class="modal fade" id="guardar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="guardarLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
+                        <!--Encabezazado Ventana Emergente Titulo y Boton para Cerrar -->
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="guardarLabel">Confirmar Cambios</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Volver"></button>
                         </div>
+                        <!-- Cuerpo Encabezado Confirmar Cambios Datos de Usuario Modificado -->
                         <div class="modal-body">
                             <div class="container">
+                                <!-- Formulario Desactivado para mostrar las propiedades con los cambios del Usuario-->
                                 <form>
+                                    <!-- Campo del Formulario Desactivado para mostrar el Nombre-->
                                     <div class="row g-3 align-items-center">
                                         <div class="col-auto">
                                             <label for="inputName" class="col-form-label">Nombre</label>
@@ -53,7 +61,7 @@
                                             <input class="form-control" type="text" value="@usuarioBuscadoID.Nombre" aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>
-
+                                    <!-- Campo del Formulario Desactivado para mostrar el Apellido-->
                                     <div class="row g-3 align-items-center mt-1">
                                         <div class="col-auto">
                                             <label for="inputApellido" class="col-form-label">Apellido</label>
@@ -62,7 +70,7 @@
                                             <input class="form-control" type="text" value="@usuarioBuscadoID.Apellido" aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>
-
+                                    <!-- Campo del Formulario Desactivado para mostrar el Puesto-->
                                     <div class="row g-3 align-items-center mt-1">
                                         <div class="col-auto">
                                             <label for="inputPuesto" class="col-form-label">Puesto</label>
@@ -77,6 +85,7 @@
                             </div>
 
                         </div>
+                        <!-- Boton para Confirmar Cambios-->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="false" @onclick="@(() => { Update(usuarioBuscadoID);})">Confirmar</button>
                         </div>
@@ -92,32 +101,35 @@
 </div>
 
 @code {
-    [SupplyParameterFromQuery]
+    [SupplyParameterFromQuery] //indica que el valor de usuarioID se debe obtener de la URL, recibido por la selección de usuarios
     public int usuarioId { get; set;}
-    public Usuario? usuarioBuscadoID;
-    public Usuario? userModificado;
-    private List<Rango>? PuestosModif = Enum.GetValues(typeof(Rango)).Cast<Rango>().ToList();
-    UsuarioServices usuarioServices = new UsuarioServices();
+
+    public Usuario? usuarioBuscadoID; //guarda el usuario seleccionado en la pagina anterior
+    public Usuario? userModificado; //guarda el usuario modificado 
+    private List<Rango>? PuestosModif = Enum.GetValues(typeof(Rango)).Cast<Rango>().ToList(); //obtiene en una lista los distintos rangos para mostrar como opción
+    UsuarioServices usuarioServices = new UsuarioServices(); //instancia al intermediario entre el Usuario y la base de datos 
 
 
     protected override async Task OnParametersSetAsync()
     {
-        if (usuarioId != 0)
+        if (usuarioId != 0) 
         {
-            usuarioBuscadoID = usuarioServices.GetById(usuarioId);
+            usuarioBuscadoID = usuarioServices.GetById(usuarioId); //al inicializarse la pagina, se guarda en la variable el Usuario seleccionado en la pagina anterior
         }
 
     }
 
 
     public void Update(Usuario unUsuario)
-    {
-        userModificado = usuarioServices.GetById(usuarioId);
+    {  
+        //selecciona el usuario a modificar y lo modifica campo a campo con lo ingreado por el usuario
+        userModificado = usuarioServices.GetById(usuarioId); 
         userModificado.Nombre = unUsuario.Nombre;
         userModificado.Apellido = unUsuario.Apellido;
         userModificado.Puesto = unUsuario.Puesto;
-        usuarioServices.Update(userModificado);
+
+        usuarioServices.Update(userModificado); //Intermediario guarda en la base de datos el usuario modificado
         
-        Navigation.NavigateTo("/Usuarios");
+        Navigation.NavigateTo("/Usuarios"); //Redirige a la pagina usuarios
     }
 }

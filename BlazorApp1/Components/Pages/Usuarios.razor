@@ -2,45 +2,57 @@
 @rendermode InteractiveServer
 @using TallerModel
 
+<!-- Titulo y Logo de Taller -->
 <h1 class="d-flex align-items-center justify-content-between">
     <span>CRUD de Usuarios</span>
     <i class="bi bi-wrench-adjustable-circle" style="font-size: 4rem;"></i>
 </h1>
 
+<!-- Mostrar Listas de Usuario -->
 @if (listaUsuarios == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
+    <!-- Mostrar Botones de Crear Usuario, Filtrado y Contador de Usuarios -->
+
     <div class="container">
         <div class="row">
+            <!-- Boton Crear Usuario redirige a pagina /CrearUsuario -->
             <div class="col">
                 <a href="/CrearUsuario" class="btn btn-outline-primary me-3" tabindex="-1" role="button" aria-disabled="true"> <i class="bi bi-person-add"></i> Crear Usuario</a>
             </div>
             <div class="col">
+                <!-- Formulario para Nombre de Usuario -->
                 <form class="d-flex" role="search">
                     <input type="search" class="form-control mb-2 me-2" id="nombre-filtro" @bind="nombreBuscado" placeholder="Filtrar por Nombre">
                     <div class="btn-group">
-
+                        <!-- Boton de Filtrado con Icono -->
                         <button type="button" class="btn btn-primary mb-2" @onclick="@(() => Filtrar(nombreBuscado))"> <i class="bi bi-search"></i> </button>
-
+                        <!-- Boton de Limpieza de Filtro con Icono-->
                         <button type="button" class="btn btn-danger mb-2" @onclick="@(() => Limpiar(nombreBuscado))"> <i class="bi bi-arrow-clockwise"> </i></button>
 
                     </div>
                 </form>
             </div>
+            <!-- Mostrar Icono y Numero de Usuarios encontrados -->
             <div class="col">
                 <div class="d-flex align-items-center justify-content-end flex-grow-1">
+                    <!-- Icono -->
                     <i class="bi bi-person-check fs-4 text-primary"></i>
+                    <!-- Contador de usuarios -->
                     <span class="fs-4 ms-2 text-primary">@listaUsuarios.Count()</span>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Tabla para la Lista de Usuarios -->
+
     <table class="table table-striped">
         <thead>
+            <!-- Encabezado de las Columnas-->
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
@@ -51,40 +63,47 @@ else
             </tr>
         </thead>
         <tbody>
+            <!-- Llenado de Filas, Propiedades de Usuarios + Botones para Read - Update - Delete -->
             @foreach (var usuario in listaUsuarios)
             {
                 <tr>
+                    <!-- Mostrar propieades de un Usuario-->
                     <td>@usuario.UsuarioId</td>
                     <td>@usuario.Nombre</td>
                     <td>@usuario.Apellido</td>
                     <td>@usuario.Puesto</td>
                     <td>
-                        <!-- Trigger Modal Ver Usuario -->
+                        <!-- Boton Abre ventana emergente para mostrar propieades del Usuario -->
                         <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#verUsuarioModal_@usuario.UsuarioId">
                             <i class="bi bi-eye"></i>
                         </button>
-                        <!-- Modal Ver Usuario -->
+                        <!-- Ventana emergente para Ver Usuario -->
                         <div class="modal fade" id="verUsuarioModal_@usuario.UsuarioId" tabindex="-1" aria-labelledby="verUsuarioLabel_@usuario.UsuarioId" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
+                                    <!-- Encabezado de Ventana Emergente con Titulo y Cerrar -->
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="verUsuarioLabel_@usuario.UsuarioId">Ver Usuario</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
+                                    <!-- Cuerpo de Ventana Emergente con Propiedades del Usuario -->
                                     <div class="modal-body">
                                         <div class="container">
+                                            <!-- Fila con Nombre del Usuario-->
                                             <div class="row mb-3">
                                                 <label class="col-form-label col-sm-4">Nombre:</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" value="@usuario.Nombre" disabled />
                                                 </div>
                                             </div>
+                                            <!-- Fila con Apellido del Usuario-->
                                             <div class="row mb-3">
                                                 <label class="col-form-label col-sm-4">Apellido:</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" value="@usuario.Apellido" disabled />
 												</div>
                                             </div>
+                                            <!-- Fila con Puesto del Usuario-->
                                             <div class="row mb-3">
                                                 <label class="col-form-label col-sm-4">Puesto:</label>
                                                 <div class="col-sm-8">
@@ -93,32 +112,36 @@ else
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Pie de pagina de Ventana Emergente-->
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Trigger Redirige Modificar Usuario -->
+                        <!-- Boton Modificar Usuario redirige a pagina /modificarusuario y pasa como parametro el Id del Usuario-->
                         <a href="/modificarusuario?usuarioId=@usuario.UsuarioId" class="btn btn-outline-warning" tabindex="-1" role="button" aria-disabled="true"> <i class="bi bi-pencil"></i> </a>
-                        <!-- Trigger Modal Eliminar Usuario -->
+                        <!--Boton Abre ventana emergente confirmación de Eliminación del Usuario-->
                         <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#eliminarUsuarioModal_@usuario.UsuarioId">
                             <i class="bi bi-person-x"></i>
                         </button>
-                        <!-- Modal Eliminar Usuario -->
+                        <!-- Ventana Emergente Confirmación de Eliminación de Usuario-->
                         <div class="modal fade" id="eliminarUsuarioModal_@usuario.UsuarioId" tabindex="-1" aria-labelledby="eliminarUsuarioLabel_@usuario.UsuarioId" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
+                                        <!-- Encabezado de Ventana Emergente Eliminar Usuario y Boton Cerrar-->
                                         <h5 class="modal-title" id="eliminarUsuarioLabel_@usuario.UsuarioId">Eliminar Usuario</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
+                                    <!-- Cuerpo de Ventana Emergente-->
                                     <div class="modal-body">
                                         ¿Estás seguro de que deseas eliminar al usuario @usuario.Nombre @usuario.Apellido? Esta acción no se puede deshacer.
                                     </div>
+                                    <!-- Pie de Ventana Emergente Cancelar y Eliminar-->
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @onclick="@(() => Delete(usuario.UsuarioId))">Eliminar</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @onclick="@(() => Delete(usuario.UsuarioId))">Confirmar</button>
                                     </div>
                                 </div>
                             </div>
@@ -132,34 +155,33 @@ else
 }
 
 @code {
-    public UsuarioServices usuarioServices = new UsuarioServices();
-    public string nombreBuscado = string.Empty;
-    IEnumerable<Usuario>? listaUsuarios;
-
+    public UsuarioServices usuarioServices = new UsuarioServices(); //crea una instancia del Intermediario entre Usuario y la Base de Datos
+    public string nombreBuscado = string.Empty; //inicializa en vacio la variable para Filtrar Usuarios que se sincroniza (bind) con lo Ingresado por el Usuario en el formulario
+    IEnumerable<Usuario>? listaUsuarios; //crea una lista de Usuarios para guardar los Usuarios encontrados en la base de datos
 
     protected override async Task OnInitializedAsync()
     {
-        GetAllUsuarios();
+        GetAllUsuarios(); //al inicializar pagina, se llama al método que obtiene todos los Usuarios
         
     }
     public void GetAllUsuarios()
     {
 
         //OBTENER LISTA DE USUARIOS
-        listaUsuarios = usuarioServices.GetAll();
+        listaUsuarios = usuarioServices.GetAll(); //guarda en la variable listaUsuarios todos los Usuarios en la base de datos
     }
 
     public void GetByNomb(string unNombre)
     {
         //OBTENER LISTA DE USUARIOS COINCIDENTES CON UN NOMBRE
-        listaUsuarios = usuarioServices.GetByNombreyAp(unNombre);
+        listaUsuarios = usuarioServices.GetByNombreyAp(unNombre); //guarda en la variable listaUsuarios unicamente los Usuarios coincidentes con el Nombre y Apellido
     }
 
     public void Delete(int id)
     {
         //ELIMINA UN USUARIO POR SU ID Y RESETEA LISTA DE USUARIOS
-        int? usuarioElimado = usuarioServices.Delete(id);
-        GetAllUsuarios();
+        int? usuarioElimado = usuarioServices.Delete(id); //Elimina el usuario seleccionado
+        GetAllUsuarios(); //Actualiza lista de usuarios
     }
 
     public void Filtrar(string unNombreyAp)
@@ -168,12 +190,13 @@ else
 
         if (unNombreyAp == string.Empty)
         {
-            GetAllUsuarios();
+            GetAllUsuarios(); //Si esta vacio el filtro, se obtiene todos.
+
         }
 
         else
         {
-            GetByNomb(unNombreyAp);
+            GetByNomb(unNombreyAp); //si no esta vacio, se selecciona solo los que coinciden con lo ingresado en el formulario
         }
 
 
@@ -181,8 +204,8 @@ else
 
     public void Limpiar (string unNombreyAp)
     {
-        unNombreyAp = string.Empty;
-        Filtrar(unNombreyAp);
+        unNombreyAp = string.Empty; //setea el parametro en vacio
+        Filtrar(unNombreyAp); //filtra todos los usuarios, porque el parametro está vacio
     }
 
 }
