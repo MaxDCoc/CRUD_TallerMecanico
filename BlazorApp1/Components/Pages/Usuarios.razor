@@ -17,11 +17,13 @@ else
 {
     <!-- Mostrar Botones de Crear Usuario, Filtrado y Contador de Usuarios -->
 
-    <div class="container">
         <div class="row">
             <!-- Boton Crear Usuario redirige a pagina /CrearUsuario -->
             <div class="col">
-                <a href="/CrearUsuario" class="btn btn-outline-primary me-3" tabindex="-1" role="button" aria-disabled="true"> <i class="bi bi-person-add"></i> Crear Usuario</a>
+                <div class="d-flex align-items-center justify-content-start">
+                    <!-- Link que redirige a la pagina crear usuario -->
+                    <a href="/CrearUsuario" class="btn btn-outline-primary me-3" tabindex="-1" role="button" aria-disabled="true"> <i class="bi bi-person-add"></i> Crear Usuario</a>
+                </div>
             </div>
             <div class="col">
                 <!-- Formulario para Nombre de Usuario -->
@@ -38,7 +40,7 @@ else
             </div>
             <!-- Mostrar Icono y Numero de Usuarios encontrados -->
             <div class="col">
-                <div class="d-flex align-items-center justify-content-end flex-grow-1">
+                <div class="d-flex align-items-center justify-content-end">
                     <!-- Icono -->
                     <i class="bi bi-person-check fs-4 text-primary"></i>
                     <!-- Contador de usuarios -->
@@ -46,7 +48,6 @@ else
                 </div>
             </div>
         </div>
-    </div>
 
     <!-- Tabla para la Lista de Usuarios -->
 
@@ -205,7 +206,7 @@ else
     public void Limpiar (string unNombreyAp)
     {
         unNombreyAp = string.Empty; //setea el parametro en vacio
-        Filtrar(unNombreyAp); //filtra todos los usuarios, porque el parametro está vacio
+        Filtrar(unNombreyAp); //filtra todos los usuarios, porque l
     }
 
 }
