@@ -12,8 +12,8 @@ namespace TallerModel
         public DbSet<Usuario> Usuarios { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseInMemoryDatabase("TallerMecanicoDB");
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Taller;Trusted_Connection=True;");
+            optionsBuilder.UseInMemoryDatabase("TallerMecanicoDB");
+            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Taller;Trusted_Connection=True;");
         }
 
     }
@@ -22,7 +22,7 @@ namespace TallerModel
     {
         public int UsuarioId { get; set; }
 
-        
+
         public string Apellido { get; set; } = string.Empty;
 
         
