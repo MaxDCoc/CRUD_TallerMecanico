@@ -4,18 +4,21 @@ using TallerModel;
 UsuarioServices usuarioServices = new UsuarioServices();
 
 //CREAR USUARIOS
-/*
-for (int i = 1; i <= 20; i++)
+
+for (int i = 1; i <= 9; i++)
 {
     Usuario usuarioaCrear = new Usuario();
     usuarioaCrear.Nombre = $"Martin{i}";
     usuarioaCrear.Apellido = $"LOPEZ SOTO{i}";
+    usuarioaCrear.dni = $"45.022.00{i}";
+    usuarioaCrear.cuil = $"20-4502200{i}";
+    usuarioaCrear.telefono = $"3777-00000{i}";
     usuarioaCrear.Puesto = Rango.Mecanico;
 
     Usuario usuarioCreado = usuarioServices.Create(usuarioaCrear);
-    Console.WriteLine($"Id: {usuarioCreado.UsuarioId} Desc: {usuarioCreado.Nombre} {usuarioCreado.Apellido} ");
+    Console.WriteLine($"Id: {usuarioCreado.UsuarioId} Desc: {usuarioCreado.Nombre} {usuarioCreado.Apellido} {usuarioCreado.dni} {usuarioCreado.cuil} {usuarioCreado.telefono} {usuarioCreado.Puesto} ");
 }
-*/
+
 
 //OBTENER LISTA DE USUARIOS
 /*
@@ -70,13 +73,13 @@ Console.WriteLine($"Id: {userModificado.UsuarioId} Nom: {userModificado.Nombre} 
 */
 
 //ELIMINAR ID 
-
+/*
 Usuario? userABorrar = usuarioServices.GetById(92);
 
 int? userBorrado = usuarioServices.Delete(92);
 
 Console.WriteLine("Se elimino el usuario", $"Id: {userBorrado}");
-
+*/
 
 //CREATE USUARIO VACIO
 

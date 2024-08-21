@@ -22,13 +22,16 @@ namespace TallerModel
     {
         public int UsuarioId { get; set; }
 
+        public string Nombre { get; set; } = string.Empty;
 
         public string Apellido { get; set; } = string.Empty;
 
-        
-        public string Nombre { get; set; } = string.Empty;
+        public string dni { get; set; } = "00-000-000";
 
-        public Rango? Puesto { get; set; }
+        public string cuil { get; set;} = "00-00000000";
+
+        public string telefono { get; set; } = "3777-000000";
+        public Rango? Puesto { get; set; } = Rango.Mecanico;
     }
 
     public enum Rango
