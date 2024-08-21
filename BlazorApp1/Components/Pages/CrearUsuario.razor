@@ -65,30 +65,50 @@
                             <div class="container">
                                 <!--Formulario desactivado con datos del Usuario-->
                                 <form>
-                                    <!--Campo Desactivado para Nombre del Nuevo Usuario-->
-                                    <div class="row g-3 align-items-center">
-                                        <div class="col-auto">
-                                            <label for="inputName" class="col-form-label">Nombre</label>
-                                        </div>
-                                        <div class="col-auto">
+                                    <!-- Campo del Formulario Desactivado para mostrar el Nombre -->
+                                    <div class="row mb-3">
+                                        <label for="inputName" class="col-form-label col-sm-4">Nombre</label>
+                                        <div class="col-sm-6">
                                             <input class="form-control" type="text" value="@usuarioaCrear.Nombre" aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>
-                                    <!--Campo Desactivado para Apellido del Nuevo Usuario-->
-                                    <div class="row g-3 align-items-center mt-1">
-                                        <div class="col-auto">
-                                            <label for="inputApellido" class="col-form-label">Apellido</label>
-                                        </div>
-                                        <div class="col-auto">
+                                    <!-- Campo del Formulario Desactivado para mostrar el Apellido -->
+                                    <div class="row mb-3">
+                                        <label for="inputApellido" class="col-form-label col-sm-4">Apellido</label>
+                                        <div class="col-sm-6">
                                             <input class="form-control" type="text" value="@usuarioaCrear.Apellido" aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>
-                                    <!--Campo Desactivado para Puesto del Nuevo Usuario-->
-                                    <div class="row g-3 align-items-center mt-1">
-                                        <div class="col-auto">
-                                            <label for="inputPuesto" class="col-form-label">Puesto</label>
+
+                                    <!-- Campo del Formulario Desactivado para mostrar el DNI -->
+                                    <div class="row mb-3">
+                                        <label for="inputDNI" class="col-form-label col-sm-4">DNI</label>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" type="text" value="@usuarioaCrear.dni" aria-label="Disabled input example" disabled readonly>
                                         </div>
-                                        <div class="col-auto">
+                                    </div>
+
+                                    <!-- Campo del Formulario Desactivado para mostrar el CUIL -->
+                                    <div class="row mb-3">
+                                        <label for="inputCUIL" class="col-form-label col-sm-4">CUIL</label>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" type="text" value="@usuarioaCrear.cuil" aria-label="Disabled input example" disabled readonly>
+                                        </div>
+                                    </div>
+
+                                    <!-- Campo del Formulario Desactivado para mostrar el Teléfono -->
+                                    <div class="row mb-3">
+                                        <label for="inputTelefono" class="col-form-label col-sm-4">Teléfono</label>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" type="text" value="@usuarioaCrear.telefono" aria-label="Disabled input example" disabled readonly>
+                                        </div>
+                                    </div>
+
+
+                                    <!--Campo Desactivado para Puesto del Nuevo Usuario-->
+                                    <div class="row mb-3">
+                                        <label for="inputPuesto" class="col-form-label col-sm-4">Puesto</label>
+                                        <div class="col-sm-6">
                                             <select class="form-select" aria-label="Disabled select example" disabled>
                                                 <option selected>@usuarioaCrear.Puesto</option>
                                             </select>
