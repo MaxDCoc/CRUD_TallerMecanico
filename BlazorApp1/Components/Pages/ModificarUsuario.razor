@@ -13,31 +13,43 @@
         <!-- Campo de formulario para Modificar Nombre-->
         <div class="mb-3">
             <label for="disabledTextInput" class="form-label">Nombre</label>
-            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" @bind="usuarioBuscadoID.Nombre">
+            <input type="text" class="form-control" @bind="usuarioBuscadoID.Nombre">
         </div>
 
         <!-- Campo de formulario para Modificar Apellido-->
         <div class="mb-3">
             <label for="disabledTextInput" sclass="form-label">Apellido </label>
-            <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" @bind="usuarioBuscadoID.Apellido">
+            <input type="text" class="form-control" @bind="usuarioBuscadoID.Apellido">
         </div>
 
         <!-- Campo de formulario para Modificar DNI-->
         <div class="mb-3">
             <label for="disabledTextInput" class="form-label">DNI</label>
-            <input type="text" class="form-control" placeholder="00-000-000" aria-label="DNI" @bind="usuarioBuscadoID.dni">
+            <input type="text" class="form-control" @bind="usuarioBuscadoID.Dni">
         </div>
 
         <!-- Campo de formulario para Modificar CUIL-->
         <div class="mb-3">
             <label for="disabledTextInput" class="form-label">CUIL</label>
-            <input type="text" class="form-control" placeholder="00-00000000" aria-label="CUIL" @bind="usuarioBuscadoID.cuil">
+            <input type="text" class="form-control" @bind="usuarioBuscadoID.Cuil">
         </div>
 
         <!-- Campo de formulario para Modificar Teléfono-->
         <div class="mb-3">
             <label for="disabledTextInput" class="form-label">Teléfono</label>
-            <input type="text" class="form-control" placeholder="3777-000000" aria-label="Teléfono" @bind="usuarioBuscadoID.telefono">
+            <input type="text" class="form-control" @bind="usuarioBuscadoID.Telefono">
+        </div>
+
+        <!-- Campo de formulario para Modificar Email-->
+        <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">Email</label>
+            <input type="text" class="form-control" @bind="usuarioBuscadoID.Email">
+        </div>
+
+        <!-- Campo de formulario para Modificar Contaseña-->
+        <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">Contraseña</label>
+            <input type="text" class="form-control" @bind="usuarioBuscadoID.Contraseña">
         </div>
 
         <!-- Campo de formulario para Selector de Puesto-->
@@ -56,7 +68,7 @@
             <!-- Botón volver redirige a /Usuarios -->
             <a href="/Usuarios" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="false">Volver</a>
             <!-- Botón Abre Ventana Emergente Confirmar Cambios -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#guardar"> Confirmar </button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#guardar"> Modificar </button>
             <!-- Ventana Emergente Confirmar Cambios Datos de Usuario Modificado -->
             <div class="modal fade" id="guardar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="guardarLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -90,7 +102,7 @@
                                     <div class="row mb-3">
                                         <label for="inputDNI" class="col-form-label col-sm-4">DNI</label>
                                         <div class="col-sm-6">
-                                            <input class="form-control" type="text" value="@usuarioBuscadoID.dni" aria-label="Disabled input example" disabled readonly>
+                                            <input class="form-control" type="text" value="@usuarioBuscadoID.Dni" aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>
 
@@ -98,7 +110,7 @@
                                     <div class="row mb-3">
                                         <label for="inputCUIL" class="col-form-label col-sm-4">CUIL</label>
                                         <div class="col-sm-6">
-                                            <input class="form-control" type="text" value="@usuarioBuscadoID.cuil" aria-label="Disabled input example" disabled readonly>
+                                            <input class="form-control" type="text" value="@usuarioBuscadoID.Cuil" aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>
 
@@ -106,7 +118,23 @@
                                     <div class="row mb-3">
                                         <label for="inputTelefono" class="col-form-label col-sm-4">Teléfono</label>
                                         <div class="col-sm-6">
-                                            <input class="form-control" type="text" value="@usuarioBuscadoID.telefono" aria-label="Disabled input example" disabled readonly>
+                                            <input class="form-control" type="text" value="@usuarioBuscadoID.Telefono" aria-label="Disabled input example" disabled readonly>
+                                        </div>
+                                    </div>
+
+                                    <!-- Campo del Formulario Desactivado para mostrar el Email -->
+                                    <div class="row mb-3">
+                                        <label for="inputTelefono" class="col-form-label col-sm-4">Email</label>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" type="text" value="@usuarioBuscadoID.Email" aria-label="Disabled input example" disabled readonly>
+                                        </div>
+                                    </div>
+
+                                    <!-- Campo del Formulario Desactivado para mostrar la Contraseña -->
+                                    <div class="row mb-3">
+                                        <label for="inputTelefono" class="col-form-label col-sm-4">Contraseña</label>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" type="text" value="@usuarioBuscadoID.Contraseña" aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>
 

@@ -21,17 +21,27 @@
         <!-- Campo del Formulario para DNI-->
         <div class="mb-3">
             <label for="disabledTextInput" class="form-label">DNI</label>
-            <input type="text" class="form-control" placeholder="00-000-000" aria-label="DNI" @bind="usuarioaCrear.dni">
+            <input type="text" class="form-control" placeholder="45.000.000" aria-label="DNI" @bind="usuarioaCrear.Dni">
         </div>
-        <!-- Campo del Formulario para DNI-->
+        <!-- Campo del Formulario para CUIL-->
         <div class="mb-3">
             <label for="disabledTextInput" class="form-label">CUIL</label>
-            <input type="text" class="form-control" placeholder="00-00000000" aria-label="CUIL" @bind="usuarioaCrear.cuil">
+            <input type="text" class="form-control" placeholder="20-45000000" aria-label="CUIL" @bind="usuarioaCrear.Cuil">
         </div>
-        <!-- Campo del Formulario para DNI-->
+        <!-- Campo del Formulario para Telefono-->
         <div class="mb-3">
             <label for="disabledTextInput" class="form-label">Teléfono</label>
-            <input type="text" class="form-control" placeholder="3777-000000" aria-label="Teléfono" @bind="usuarioaCrear.telefono">
+            <input type="text" class="form-control" placeholder="3777-000000" aria-label="Teléfono" @bind="usuarioaCrear.Telefono">
+        </div>
+        <!-- Campo del Formulario para Email-->
+        <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">Email</label>
+            <input type="text" class="form-control" placeholder="unemail@hotmail.com" aria-label="Email" @bind="usuarioaCrear.Email">
+        </div>
+        <!-- Campo del Formulario para Contraseña-->
+        <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">Contraseña</label>
+            <input type="text" class="form-control" placeholder="********" aria-label="Contraseña" @bind="usuarioaCrear.Contraseña">
         </div>
         <!-- Campo del Formulario para Selector de Puestos-->
             <div class="mb-3">
@@ -50,7 +60,7 @@
             <!-- Botón para volver a Pagina /Usuarios-->
             <a href="/Usuarios" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="false">Volver</a>
             <!--Botón abre Ventana Emergente para Confirmación de Nuevo Usuario-->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#guardar"> Confirmar </button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#guardar"> Crear </button>
             <!--Ventana Emergente muestra propiedades del Nuevo Usuario-->
             <div class="modal fade" id="guardar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="guardarLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -84,7 +94,7 @@
                                     <div class="row mb-3">
                                         <label for="inputDNI" class="col-form-label col-sm-4">DNI</label>
                                         <div class="col-sm-6">
-                                            <input class="form-control" type="text" value="@usuarioaCrear.dni" aria-label="Disabled input example" disabled readonly>
+                                            <input class="form-control" type="text" value="@usuarioaCrear.Dni" aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>
 
@@ -92,7 +102,7 @@
                                     <div class="row mb-3">
                                         <label for="inputCUIL" class="col-form-label col-sm-4">CUIL</label>
                                         <div class="col-sm-6">
-                                            <input class="form-control" type="text" value="@usuarioaCrear.cuil" aria-label="Disabled input example" disabled readonly>
+                                            <input class="form-control" type="text" value="@usuarioaCrear.Cuil" aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>
 
@@ -100,10 +110,25 @@
                                     <div class="row mb-3">
                                         <label for="inputTelefono" class="col-form-label col-sm-4">Teléfono</label>
                                         <div class="col-sm-6">
-                                            <input class="form-control" type="text" value="@usuarioaCrear.telefono" aria-label="Disabled input example" disabled readonly>
+                                            <input class="form-control" type="text" value="@usuarioaCrear.Telefono" aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>
 
+                                    <!-- Campo del Formulario Desactivado para mostrar el email -->
+                                    <div class="row mb-3">
+                                        <label for="inputTelefono" class="col-form-label col-sm-4">Email</label>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" type="text" value="@usuarioaCrear.Email" aria-label="Disabled input example" disabled readonly>
+                                        </div>
+                                    </div>
+
+                                    <!-- Campo del Formulario Desactivado para mostrar la contraseña -->
+                                    <div class="row mb-3">
+                                        <label for="inputTelefono" class="col-form-label col-sm-4">Contraseña</label>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" type="text" value="@usuarioaCrear.Contraseña" aria-label="Disabled input example" disabled readonly>
+                                        </div>
+                                    </div>
 
                                     <!--Campo Desactivado para Puesto del Nuevo Usuario-->
                                     <div class="row mb-3">
