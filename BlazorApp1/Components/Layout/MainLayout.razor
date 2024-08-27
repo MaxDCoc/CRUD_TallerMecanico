@@ -1,20 +1,18 @@
 ﻿@inherits LayoutComponentBase
-
+@inject NavigationManager Navigation
+<!--verifica pagina principal-->
 <div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+    @if (!Navigation.Uri.Equals(Navigation.BaseUri))
+    {
+        <div class="sidebar">
+            <NavMenu />
+        </div>
+    }
 
     <main>
-        
-        <div class="top-row px-4">
-            <a href="https://github.com/MartinLSME08/CRUD_TallerMecanico.git" target="_blank">Repositorio</a>
-        </div>
-        
-        <article class="content px-4">
+        <article>
             @Body
         </article>
-        
     </main>
 </div>
 
