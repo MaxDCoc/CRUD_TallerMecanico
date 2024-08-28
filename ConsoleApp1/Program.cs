@@ -1,13 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using TallerModel;
+//using TallerModel;
 
-UsuarioServices usuarioServices = new UsuarioServices();
+//UsuarioServices usuarioServices = new UsuarioServices();
 
 //CREAR USUARIOS
 
-for (int i = 1; i <= 9; i++)
+/* for (int i = 1; i <= 9; i++)
 {
-    Usuario usuarioaCrear = new Usuario();
+Usuario usuarioaCrear = new Usuario();
     usuarioaCrear.Nombre = $"Martin{i}";
     usuarioaCrear.Apellido = $"LOPEZ SOTO{i}";
     usuarioaCrear.dni = $"45.022.00{i}";
@@ -18,7 +18,7 @@ for (int i = 1; i <= 9; i++)
     Usuario usuarioCreado = usuarioServices.Create(usuarioaCrear);
     Console.WriteLine($"Id: {usuarioCreado.UsuarioId} Desc: {usuarioCreado.Nombre} {usuarioCreado.Apellido} {usuarioCreado.dni} {usuarioCreado.cuil} {usuarioCreado.telefono} {usuarioCreado.Puesto} ");
 }
-
+*/
 
 //OBTENER LISTA DE USUARIOS
 /*
