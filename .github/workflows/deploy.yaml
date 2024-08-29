@@ -11,7 +11,7 @@ on:
 env:
   AZURE_WEBAPP_NAME: tallermecanicorto # nombre de tu Azure Web App
   AZURE_WEBAPP_PACKAGE_PATH: '.' # ruta de salida del paquete de la app
-  DOTNET_VERSION: '8.0.0' # versión de .NET
+  DOTNET_VERSION: '8.0.x' # versión de .NET
 
 jobs:
   build-and-deploy:
