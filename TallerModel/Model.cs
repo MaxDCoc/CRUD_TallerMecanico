@@ -120,5 +120,15 @@ namespace TallerModel
             return (id);
         }
     }
-
+    public class Vehiculo
+    {
+        public required string Patente { get; set; }
+        public required string Marca { get; set; }
+        public required string Modelo { get; set; }
+        public required string Tipo { get; set; } // "electrico", "hibrido", o "naftero"
+        public required string Chasis { get; set; }
+        public required string Motor { get; set; }
+        public int DniApoderado { get; set; }
+        public required string NombreApoderado { get; set; }
+    }
 }

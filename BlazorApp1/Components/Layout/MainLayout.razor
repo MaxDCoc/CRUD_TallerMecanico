@@ -2,7 +2,7 @@
 @inject NavigationManager Navigation
 <!--verifica pagina principal-->
 <div class="page">
-    @if (!Navigation.Uri.Equals(Navigation.BaseUri))
+    @if (!Navigation.Uri.Equals(Navigation.BaseUri) && !Navigation.Uri.Contains("/home") && !Navigation.Uri.Contains("/login"))
     {
         <div class="sidebar">
             <NavMenu />

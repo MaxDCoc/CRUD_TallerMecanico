@@ -1,14 +1,18 @@
 using BlazorApp1.Components;
+using System.Net.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Agregar HttpClient como un servicio para Blazor Server
+builder.Services.AddHttpClient();
+
+// Agregar servicios para Razor Components
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configuración del pipeline de manejo de errores
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
@@ -17,6 +21,7 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 app.UseAntiforgery();
 
+// Mapeo de Razor Components
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 

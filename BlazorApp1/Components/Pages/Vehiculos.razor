@@ -1,7 +1,161 @@
-﻿@page "/vehiculos"
-@rendermode InteractiveServer
+﻿@using TallerModel
+@page "/vehiculos"
+@using System.Diagnostics
 
-<PageTitle>Vehiculos</PageTitle>
-<h1> Vehiculos </h1>
+<div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Consulta de Vehículos</h1>
 
-<img src="https://media.istockphoto.com/id/1139968862/es/foto/barrera-en-construcci%C3%B3n.jpg?s=2048x2048&w=is&k=20&c=qWX4KirNJUI8emayvSUxCPPkwDbrroLWik0xVBwV4U0=" class="img-fluid" alt="Imagen Cargando">
+    <!-- Búsqueda por patente -->
+    <div class="mb-4 flex gap-2">
+        <input type="text"
+               @bind="patronBusqueda"
+               placeholder="Ingrese la patente a buscar"
+               class="w-full p-2 border rounded" />
+        <button @onclick="BuscarVehiculo"
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            Buscar
+        </button>
+        <button @onclick="MostrarTodos"
+                class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">
+            Mostrar Todos
+        </button>
+    </div>
+
+    @if (!string.IsNullOrEmpty(mensajeError))
+    {
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <span class="block sm:inline">@mensajeError</span>
+        </div>
+    }
+
+    <!-- Debug Info -->
+    <div class="mb-4 p-2 bg-gray-100">
+        <p>Patrón de búsqueda: @patronBusqueda</p>
+        <p>Total vehículos: @vehiculosFiltrados.Count</p>
+        <p>Vehículos filtrados: @(vehiculosMostrar?.Count ?? 0)</p>
+    </div>
+
+    <!-- Tabla de vehículos -->
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="p-2">Patente</th>
+                    <th class="p-2">Marca</th>
+                    <th class="p-2">Modelo</th>
+                    <th class="p-2">Tipo</th>
+                    <th class="p-2">Chasis</th>
+                    <th class="p-2">Motor</th>
+                    <th class="p-2">DNI Apoderado</th>
+                    <th class="p-2">Nombre Apoderado</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var vehiculo in vehiculosMostrar)
+                {
+                    <tr class="border-b">
+                        <td class="p-2">@vehiculo.Value.Patente</td>
+                        <td class="p-2">@vehiculo.Value.Marca</td>
+                        <td class="p-2">@vehiculo.Value.Modelo</td>
+                        <td class="p-2">@vehiculo.Value.Tipo</td>
+                        <td class="p-2">@vehiculo.Value.Chasis</td>
+                        <td class="p-2">@vehiculo.Value.Motor</td>
+                        <td class="p-2">@vehiculo.Value.DniApoderado</td>
+                        <td class="p-2">@vehiculo.Value.NombreApoderado</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private Dictionary<string, Vehiculo> vehiculos = new()
+    {
+        {
+            "ABC123", new Vehiculo
+            {
+                Patente = "ABC123",
+                Marca = "Toyota",
+                Modelo = "Corolla",
+                Tipo = "naftero",
+                Chasis = "1HGCM82633A123456",
+                Motor = "1ZZ-1234567",
+                DniApoderado = 12345678,
+                NombreApoderado = "Juan Pérez"
+            }
+        },
+        {
+            "XYZ789", new Vehiculo
+            {
+                Patente = "XYZ789",
+                Marca = "Honda",
+                Modelo = "Civic",
+                Tipo = "hibrido",
+                Chasis = "2HGES16575H123456",
+                Motor = "L15B-7894561",
+                DniApoderado = 98765432,
+                NombreApoderado = "María González"
+            }
+        }
+    };
+
+    private Dictionary<string, Vehiculo> vehiculosFiltrados;
+    private Dictionary<string, Vehiculo> vehiculosMostrar;
+    private string patronBusqueda = "";
+    private string mensajeError = "";
+
+    // Inicializamos la lista de vehículos
+    protected override void OnInitialized()
+    {
+        Console.WriteLine("OnInitialized called");
+
+        // Vehículos filtrados son todos los vehículos al principio
+        vehiculosFiltrados = new Dictionary<string, Vehiculo>(vehiculos);
+
+        // No mostramos vehículos al principio, solo si se hace clic en "Mostrar Todos"
+        vehiculosMostrar = new Dictionary<string, Vehiculo>();
+    }
+
+    // Método para buscar vehículo por patente
+    private void BuscarVehiculo()
+    {
+        Console.WriteLine($"Buscando vehículo con patente: {patronBusqueda}");
+
+        mensajeError = "";
+        if (string.IsNullOrWhiteSpace(patronBusqueda))
+        {
+            mensajeError = "Por favor, ingrese una patente para buscar.";
+            Console.WriteLine("Patrón de búsqueda vacío");
+            return;
+        }
+
+        // Filtramos los vehículos por patente (compara sin importar mayúsculas/minúsculas)
+        var vehiculoEncontrado = vehiculosFiltrados
+            .Where(v => v.Value.Patente.Contains(patronBusqueda, StringComparison.OrdinalIgnoreCase))
+            .ToDictionary(v => v.Key, v => v.Value);
+
+        Console.WriteLine($"Vehículos encontrados: {vehiculoEncontrado.Count}");
+
+        if (vehiculoEncontrado.Count == 0)
+        {
+            mensajeError = $"No se encontró ningún vehículo con la patente {patronBusqueda}";
+        }
+
+        // Actualizamos la lista de vehículos que se mostrarán
+        vehiculosMostrar = vehiculoEncontrado;
+
+        StateHasChanged(); // Actualiza la UI
+    }
+
+    // Método para mostrar todos los vehículos
+    private void MostrarTodos()
+    {
+        Console.WriteLine("Mostrando todos los vehículos");
+        patronBusqueda = ""; // Limpiamos la búsqueda
+        mensajeError = "";   // Limpiamos el mensaje de error
+        vehiculosMostrar = new Dictionary<string, Vehiculo>(vehiculosFiltrados); // Mostramos todos los vehículos
+
+        StateHasChanged(); // Actualiza la UI
+    }
+}
