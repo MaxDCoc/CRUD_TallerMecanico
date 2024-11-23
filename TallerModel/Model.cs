@@ -4,6 +4,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Microsoft.EntityFrameworkCore;
+using TallerModel;
 namespace TallerModel
 {
 
@@ -120,5 +121,62 @@ namespace TallerModel
             return (id);
         }
     }
+    public class Vehiculo
+    {
+        public required string Patente { get; set; }
+        public required string Marca { get; set; }
+        public required string Modelo { get; set; }
+        public required string Tipo { get; set; } // "electrico", "hibrido", o "naftero"
+        public required string Chasis { get; set; }
+        public required string Motor { get; set; }
+        public int DniApoderado { get; set; }
+        public required string NombreApoderado { get; set; }
+    }
+}
 
+public class Turno
+{
+    public int TurnoId { get; set; }
+    public DateTime FechaHora { get; set; }
+    public string Vehiculo { get; set; } // Podrías relacionarlo con la clase Vehiculo si lo necesitas
+    public string Cliente { get; set; }
+    public int? MecanicoId { get; set; } // Puede ser null si no hay mecánico asignado
+    public Usuario? Mecanico { get; set; }
+}
+
+public class TallerContext : DbContext
+{
+    public DbSet<Turno> Turnos { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; } // Ya existente
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseInMemoryDatabase("TallerMecanicoDB");
+    }
+}
+
+public class TurnoServices
+{
+    private readonly TallerContext _context;
+
+    public TurnoServices()
+    {
+        _context = new TallerContext();
+    }
+
+    public IEnumerable<Turno> GetTurnosSinMecanico()
+    {
+        return _context.Turnos.Where(t => t.MecanicoId == null).ToList();
+    }
+
+    public Turno AsignarMecanico(int turnoId, int mecanicoId)
+    {
+        var turno = _context.Turnos.SingleOrDefault(t => t.TurnoId == turnoId);
+        if (turno == null) throw new Exception("Turno no encontrado");
+
+        turno.MecanicoId = mecanicoId;
+        _context.SaveChanges();
+
+        return turno;
+    }
 }

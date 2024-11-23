@@ -4118,24 +4118,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrador\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\maxco\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\BlazorApp1\\BlazorApp1.csproj",
+      "projectUniqueName": "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\BlazorApp1\\BlazorApp1.csproj",
       "projectName": "BlazorApp1",
-      "projectPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\BlazorApp1\\BlazorApp1.csproj",
-      "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\BlazorApp1\\obj\\",
+      "projectPath": "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\BlazorApp1\\BlazorApp1.csproj",
+      "packagesPath": "C:\\Users\\maxco\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\BlazorApp1\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\maxco\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4143,15 +4138,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\TallerModel\\TallerModel.csproj": {
-              "projectPath": "C:\\Users\\Administrador\\OneDrive - Facultad Regional Resistencia\\02 FACULTAD\\3er AÑO\\Diseño de Sistemas de Información\\TallerMecanico2\\TallerModel\\TallerModel.csproj"
+            "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\TallerModel\\TallerModel.csproj": {
+              "projectPath": "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\TallerModel\\TallerModel.csproj"
             }
           }
         }
@@ -4197,7 +4191,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

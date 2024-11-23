@@ -1,8 +1,130 @@
 ﻿@page "/turnos"
-@attribute [StreamRendering]
+@using TallerModel
+@inject TurnoServices TurnoService
+@inject UsuarioServices UsuarioService
 
-<PageTitle>Turnos</PageTitle>
+<h1>Turnos sin Mecánico</h1>
 
-<h1>Turnos</h1>
+@if (turnosSinMecanico == null)
 
-<img src="https://media.istockphoto.com/id/1139968862/es/foto/barrera-en-construcci%C3%B3n.jpg?s=2048x2048&w=is&k=20&c=qWX4KirNJUI8emayvSUxCPPkwDbrroLWik0xVBwV4U0=" class="img-fluid" alt="Imagen Cargando">
+{
+    <p>Cargando...</p>
+}
+
+else
+
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Turno ID</th>
+                <th>Vehículo</th>
+                <th>Cliente</th>
+                <th>Fecha y Hora</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var turno in turnosSinMecanico)
+
+            {
+                <tr>
+                    <td>@turno.TurnoId</td>
+                    <td>@turno.Vehiculo</td>
+                    <td>@turno.Cliente</td>
+                    <td>@turno.FechaHora</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => SeleccionarTurno(turno.TurnoId)">Asignar Mecánico</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (turnoSeleccionado != null)
+
+{
+    <h3>Asignar Mecánico</h3>
+    <p>Turno: @turnoSeleccionado.Vehiculo - @turnoSeleccionado.Cliente</p>
+
+    <label>Mecánico:</label>
+    <select @bind="mecanicoSeleccionadoId">
+        <option value="">Seleccionar</option>
+        @foreach (var mecanico in mecanicosDisponibles)
+
+        {
+            <option value="@mecanico.UsuarioId">@mecanico.Nombre @mecanico.Apellido</option>
+        }
+    </select>
+
+    <button class="btn btn-success" @onclick="AsignarMecanico">Asignar</button>
+}
+
+@code {
+    private IEnumerable<Turno>? turnosSinMecanico;
+
+    private Turno? turnoSeleccionado;
+
+    private IEnumerable<Usuario>? mecanicosDisponibles;
+
+    private int? mecanicoSeleccionadoId;
+
+
+
+    protected override async Task OnInitializedAsync()
+
+    {
+
+        // Obtener los turnos sin mecánico
+
+        turnosSinMecanico = TurnoService.GetTurnosSinMecanico();
+
+    }
+
+
+
+    private void SeleccionarTurno(int turnoId)
+
+    {
+
+        // Seleccionar turno y mostrar mecánicos disponibles
+
+        turnoSeleccionado = turnosSinMecanico.FirstOrDefault(t => t.TurnoId == turnoId);
+
+        mecanicosDisponibles = UsuarioService.GetByPuesto(Rango.Mecanico);
+
+    }
+
+
+
+    private void AsignarMecanico()
+
+    {
+
+        if (turnoSeleccionado != null && mecanicoSeleccionadoId.HasValue)
+
+        {
+
+            TurnoService.AsignarMecanico(turnoSeleccionado.TurnoId, mecanicoSeleccionadoId.Value);
+
+
+
+            // Actualizar la lista de turnos
+
+            turnosSinMecanico = TurnoService.GetTurnosSinMecanico();
+
+            turnoSeleccionado = null;
+
+            mecanicoSeleccionadoId = null;
+
+
+
+            // Opcional: Notificar al mecánico
+
+            // Aquí puedes implementar un servicio de notificación si es necesario
+
+        }
+
+    }
+}

@@ -5,8 +5,6 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TallerModel", "TallerModel\TallerModel.csproj", "{468C5C22-5BE7-497F-8D74-61EA7313A7BF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{88B1899A-1E3E-44C5-A056-0EB62671EAA5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{6C9BC6F0-4ED6-43F8-A2A3-E4C76340DC57}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{468C5C22-5BE7-497F-8D74-61EA7313A7BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{468C5C22-5BE7-497F-8D74-61EA7313A7BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{468C5C22-5BE7-497F-8D74-61EA7313A7BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{88B1899A-1E3E-44C5-A056-0EB62671EAA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{88B1899A-1E3E-44C5-A056-0EB62671EAA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88B1899A-1E3E-44C5-A056-0EB62671EAA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{88B1899A-1E3E-44C5-A056-0EB62671EAA5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6C9BC6F0-4ED6-43F8-A2A3-E4C76340DC57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6C9BC6F0-4ED6-43F8-A2A3-E4C76340DC57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C9BC6F0-4ED6-43F8-A2A3-E4C76340DC57}.Release|Any CPU.ActiveCfg = Release|Any CPU

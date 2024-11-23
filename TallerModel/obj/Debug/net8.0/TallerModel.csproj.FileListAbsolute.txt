@@ -41,3 +41,17 @@ C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er 
 C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico2\TallerModel\obj\Debug\net8.0\TallerModel.pdb
 C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico2\TallerModel\obj\Debug\net8.0\TallerModel.genruntimeconfig.cache
 C:\Users\Administrador\OneDrive - Facultad Regional Resistencia\02 FACULTAD\3er AÑO\Diseño de Sistemas de Información\TallerMecanico2\TallerModel\obj\Debug\net8.0\ref\TallerModel.dll
+C:\Users\maxco\OneDrive\Desktop\tpi_dds\tpi_home\TallerModel\bin\Debug\net8.0\TallerModel.deps.json
+C:\Users\maxco\OneDrive\Desktop\tpi_dds\tpi_home\TallerModel\bin\Debug\net8.0\TallerModel.runtimeconfig.json
+C:\Users\maxco\OneDrive\Desktop\tpi_dds\tpi_home\TallerModel\bin\Debug\net8.0\TallerModel.dll
+C:\Users\maxco\OneDrive\Desktop\tpi_dds\tpi_home\TallerModel\bin\Debug\net8.0\TallerModel.pdb
+C:\Users\maxco\OneDrive\Desktop\tpi_dds\tpi_home\TallerModel\obj\Debug\net8.0\TallerModel.csproj.AssemblyReference.cache
+C:\Users\maxco\OneDrive\Desktop\tpi_dds\tpi_home\TallerModel\obj\Debug\net8.0\TallerModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maxco\OneDrive\Desktop\tpi_dds\tpi_home\TallerModel\obj\Debug\net8.0\TallerModel.AssemblyInfoInputs.cache
+C:\Users\maxco\OneDrive\Desktop\tpi_dds\tpi_home\TallerModel\obj\Debug\net8.0\TallerModel.AssemblyInfo.cs
+C:\Users\maxco\OneDrive\Desktop\tpi_dds\tpi_home\TallerModel\obj\Debug\net8.0\TallerModel.csproj.CoreCompileInputs.cache
+C:\Users\maxco\OneDrive\Desktop\tpi_dds\tpi_home\TallerModel\obj\Debug\net8.0\TallerModel.dll
+C:\Users\maxco\OneDrive\Desktop\tpi_dds\tpi_home\TallerModel\obj\Debug\net8.0\refint\TallerModel.dll
+C:\Users\maxco\OneDrive\Desktop\tpi_dds\tpi_home\TallerModel\obj\Debug\net8.0\TallerModel.pdb
+C:\Users\maxco\OneDrive\Desktop\tpi_dds\tpi_home\TallerModel\obj\Debug\net8.0\TallerModel.genruntimeconfig.cache
+C:\Users\maxco\OneDrive\Desktop\tpi_dds\tpi_home\TallerModel\obj\Debug\net8.0\ref\TallerModel.dll
