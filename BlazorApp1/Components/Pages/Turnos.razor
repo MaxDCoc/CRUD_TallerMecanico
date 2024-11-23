@@ -2,6 +2,8 @@
 @using TallerModel
 @inject TurnoServices TurnoService
 @inject UsuarioServices UsuarioService
+@inject NavigationManager Navigation //sin usar tdv
+
 
 <h1>Turnos sin Mecánico</h1>
 
@@ -43,7 +45,6 @@ else
 }
 
 @if (turnoSeleccionado != null)
-
 {
     <h3>Asignar Mecánico</h3>
     <p>Turno: @turnoSeleccionado.Vehiculo - @turnoSeleccionado.Cliente</p>
@@ -52,7 +53,6 @@ else
     <select @bind="mecanicoSeleccionadoId">
         <option value="">Seleccionar</option>
         @foreach (var mecanico in mecanicosDisponibles)
-
         {
             <option value="@mecanico.UsuarioId">@mecanico.Nombre @mecanico.Apellido</option>
         }
@@ -61,70 +61,38 @@ else
     <button class="btn btn-success" @onclick="AsignarMecanico">Asignar</button>
 }
 
+
 @code {
     private IEnumerable<Turno>? turnosSinMecanico;
-
     private Turno? turnoSeleccionado;
-
-    private IEnumerable<Usuario>? mecanicosDisponibles;
-
+    private IEnumerable<Usuario>? mecanicosDisponibles; // Lista de mecánicos
     private int? mecanicoSeleccionadoId;
 
-
-
     protected override async Task OnInitializedAsync()
-
     {
-
         // Obtener los turnos sin mecánico
-
         turnosSinMecanico = TurnoService.GetTurnosSinMecanico();
-
     }
-
-
 
     private void SeleccionarTurno(int turnoId)
-
     {
-
-        // Seleccionar turno y mostrar mecánicos disponibles
-
         turnoSeleccionado = turnosSinMecanico.FirstOrDefault(t => t.TurnoId == turnoId);
-
         mecanicosDisponibles = UsuarioService.GetByPuesto(Rango.Mecanico);
 
+        // Verifica que el turno se seleccionó correctamente
+        Console.WriteLine($"Turno seleccionado: {turnoSeleccionado?.Vehiculo} - {turnoSeleccionado?.Cliente}");
     }
-
-
 
     private void AsignarMecanico()
-
     {
-
+        Console.WriteLine($"Turno ID: {turnoSeleccionado?.TurnoId}, Mecánico ID: {mecanicoSeleccionadoId}");
         if (turnoSeleccionado != null && mecanicoSeleccionadoId.HasValue)
-
         {
-
             TurnoService.AsignarMecanico(turnoSeleccionado.TurnoId, mecanicoSeleccionadoId.Value);
-
-
-
-            // Actualizar la lista de turnos
-
             turnosSinMecanico = TurnoService.GetTurnosSinMecanico();
-
             turnoSeleccionado = null;
-
             mecanicoSeleccionadoId = null;
-
-
-
-            // Opcional: Notificar al mecánico
-
-            // Aquí puedes implementar un servicio de notificación si es necesario
-
         }
-
     }
 }
+

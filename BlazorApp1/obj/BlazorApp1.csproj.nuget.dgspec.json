@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\BlazorApp1\\BlazorApp1.csproj": {}
+    "C:\\Users\\Usuario\\Desktop\\Facultad\\Tercer año\\Diseño\\TPI\\CRUD_TallerMecanico\\BlazorApp1\\BlazorApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\BlazorApp1\\BlazorApp1.csproj": {
+    "C:\\Users\\Usuario\\Desktop\\Facultad\\Tercer año\\Diseño\\TPI\\CRUD_TallerMecanico\\BlazorApp1\\BlazorApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\BlazorApp1\\BlazorApp1.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Facultad\\Tercer año\\Diseño\\TPI\\CRUD_TallerMecanico\\BlazorApp1\\BlazorApp1.csproj",
         "projectName": "BlazorApp1",
-        "projectPath": "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\BlazorApp1\\BlazorApp1.csproj",
-        "packagesPath": "C:\\Users\\maxco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\BlazorApp1\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Desktop\\Facultad\\Tercer año\\Diseño\\TPI\\CRUD_TallerMecanico\\BlazorApp1\\BlazorApp1.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Desktop\\Facultad\\Tercer año\\Diseño\\TPI\\CRUD_TallerMecanico\\BlazorApp1\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\maxco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\TallerModel\\TallerModel.csproj": {
-                "projectPath": "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\TallerModel\\TallerModel.csproj"
+              "C:\\Users\\Usuario\\Desktop\\Facultad\\Tercer año\\Diseño\\TPI\\CRUD_TallerMecanico\\TallerModel\\TallerModel.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\Desktop\\Facultad\\Tercer año\\Diseño\\TPI\\CRUD_TallerMecanico\\TallerModel\\TallerModel.csproj"
               }
             }
           }
@@ -42,8 +46,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -75,21 +80,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\TallerModel\\TallerModel.csproj": {
+    "C:\\Users\\Usuario\\Desktop\\Facultad\\Tercer año\\Diseño\\TPI\\CRUD_TallerMecanico\\TallerModel\\TallerModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\TallerModel\\TallerModel.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Facultad\\Tercer año\\Diseño\\TPI\\CRUD_TallerMecanico\\TallerModel\\TallerModel.csproj",
         "projectName": "TallerModel",
-        "projectPath": "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\TallerModel\\TallerModel.csproj",
-        "packagesPath": "C:\\Users\\maxco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maxco\\OneDrive\\Desktop\\tpi_dds\\tpi_home\\TallerModel\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Desktop\\Facultad\\Tercer año\\Diseño\\TPI\\CRUD_TallerMecanico\\TallerModel\\TallerModel.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Desktop\\Facultad\\Tercer año\\Diseño\\TPI\\CRUD_TallerMecanico\\TallerModel\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\maxco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -113,8 +122,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -161,7 +171,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

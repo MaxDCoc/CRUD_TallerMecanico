@@ -157,26 +157,36 @@ public class TallerContext : DbContext
 
 public class TurnoServices
 {
-    private readonly TallerContext _context;
+    private List<Turno> turnos;
 
     public TurnoServices()
     {
-        _context = new TallerContext();
+        // Inicializar turnos estáticos
+        turnos = new List<Turno>
+        {
+            new Turno { TurnoId = 1, Vehiculo = "Toyota Corolla", Cliente = "Juan Pérez", FechaHora = new DateTime(2024, 11, 24, 10, 0, 0) },
+            new Turno { TurnoId = 2, Vehiculo = "Ford Ranger", Cliente = "María López", FechaHora = new DateTime(2024, 11, 24, 11, 0, 0) },
+            new Turno { TurnoId = 3, Vehiculo = "Honda Civic", Cliente = "Carlos García", FechaHora = new DateTime(2024, 11, 24, 12, 0, 0) },
+            new Turno { TurnoId = 4, Vehiculo = "Chevrolet Onix", Cliente = "Ana Torres", FechaHora = new DateTime(2024, 11, 24, 13, 0, 0) },
+            new Turno { TurnoId = 5, Vehiculo = "Volkswagen Golf", Cliente = "Luis Sánchez", FechaHora = new DateTime(2024, 11, 24, 14, 0, 0) }
+        };
     }
 
     public IEnumerable<Turno> GetTurnosSinMecanico()
     {
-        return _context.Turnos.Where(t => t.MecanicoId == null).ToList();
+        return turnos.Where(t => t.MecanicoId == null);
     }
 
-    public Turno AsignarMecanico(int turnoId, int mecanicoId)
+public void AsignarMecanico(int turnoId, int mecanicoId)
+{
+    var turno = turnos.FirstOrDefault(t => t.TurnoId == turnoId);
+    if (turno != null)
     {
-        var turno = _context.Turnos.SingleOrDefault(t => t.TurnoId == turnoId);
-        if (turno == null) throw new Exception("Turno no encontrado");
-
         turno.MecanicoId = mecanicoId;
-        _context.SaveChanges();
-
-        return turno;
     }
+    else
+    {
+        Console.WriteLine("No se encontró el turno.");
+    }
+}
 }
